@@ -1,0 +1,20 @@
+
+
+
+
+
+<suite name="Automation">
+
+	<test name="Smoke">
+
+		<classes>
+
+			<class name="tests.loginTest" />
+			<class name="tests.ProductTest" />
+
+
+		</classes>
+
+	</test>
+
+</suite>
