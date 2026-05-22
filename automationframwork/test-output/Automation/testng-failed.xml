@@ -3,13 +3,23 @@
 <suite name="Failed suite [Automation]">
   <test thread-count="5" name="Smoke(failed)">
     <classes>
-      <class name="tests.CheckoutTest">
+      <class name="tests.ProductTest">
         <methods>
-          <include name="close"/>
-          <include name="completeOrder"/>
-          <include name="start"/>
+          <include name="addToCart"/>
         </methods>
-      </class> <!-- tests.CheckoutTest -->
+      </class> <!-- tests.ProductTest -->
+      <class name="tests.loginTest">
+        <methods>
+          <include name="validLogin"/>
+          <include name="validLogin1"/>
+          <include name="startReport"/>
+          <include name="start"/>
+          <include name="emptyLogin"/>
+          <include name="endReport"/>
+          <include name="close"/>
+          <include name="invalidLogin"/>
+        </methods>
+      </class> <!-- tests.loginTest -->
     </classes>
   </test> <!-- Smoke(failed) -->
 </suite> <!-- Failed suite [Automation] -->

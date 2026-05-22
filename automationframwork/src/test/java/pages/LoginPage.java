@@ -1,32 +1,36 @@
 package pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
 
-WebDriver driver;
+    WebDriver driver;
+    WebDriverWait wait;
 
-By username=By.id("user-name");
+    public LoginPage(WebDriver driver) {
 
-By password=By.id("password");
+        this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    }
 
-By login=By.id("login-button");
+    public void loginMethod(String username, String password) {
 
-public LoginPage(WebDriver driver){
+        wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.id("user-name")));
 
-this.driver=driver;
+        driver.findElement(By.id("user-name"))
+                .sendKeys(username);
 
-}
+        driver.findElement(By.id("password"))
+                .sendKeys(password);
 
-public void loginMethod(String user,String pass){
-
-driver.findElement(username).sendKeys(user);
-
-driver.findElement(password).sendKeys(pass);
-
-driver.findElement(login).click();
-
-}
-
+        driver.findElement(By.id("login-button"))
+                .click();
+    }
 }
